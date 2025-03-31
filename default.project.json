@@ -25,7 +25,7 @@
 
     "Workspace": {
       "$properties": {
-        "FilteringEnabled": true
+        "FilteringEnabled": true // Ensure this is true for security and compatibility
       },
       "Baseplate": {
         "$className": "Part",
