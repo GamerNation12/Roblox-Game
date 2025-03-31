@@ -12,6 +12,9 @@
     "ServerScriptService": {
       "Server": {
         "$path": "src/server"
+      },
+      "Leaderboard": {
+        "$path": "src/server/leaderboard.server.lua"
       }
     },
 
@@ -74,7 +77,8 @@
     },
     "Players": {
       "$properties": {
-        "CharacterAutoLoads": true // Ensure characters load automatically
+        "CharacterAutoLoads": true, // Ensure characters load automatically
+        "EnableVoiceChat": true    // Enable voice chat
       }
     }
   }
