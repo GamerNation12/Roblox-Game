@@ -78,7 +78,7 @@
     "Players": {
       "$properties": {
         "CharacterAutoLoads": true, // Ensure characters load automatically
-        "EnableVoiceChat": true    // Enable voice chat
+        "EnableVoiceChat": true    // Ensure voice chat is enabled
       }
     }
   }
