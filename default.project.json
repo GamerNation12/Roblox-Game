@@ -18,6 +18,9 @@
       },
       "Packages": {
         "$path": "src/server/packages"
+      },
+      "AutoUpdate": {
+        "$path": "src/server/auto_update.server.lua"
       }
     },
 
