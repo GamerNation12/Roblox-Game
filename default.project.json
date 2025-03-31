@@ -28,25 +28,31 @@
         }
       },
       "$properties": {
-        "LoadCharacterAppearance": true, // Ensure player appearance loads
-        "UserEmotesEnabled": true       // Enable emotes if needed
+        "LoadCharacterAppearance": true,
+        "UserEmotesEnabled": true,
+        "CameraMode": "Classic", // Set default camera mode
+        "DevTouchCameraMovementMode": "Classic", // Touch camera movement
+        "DevComputerMovementMode": "KeyboardMouse" // PC movement mode
       }
     },
 
     "Workspace": {
       "$properties": {
-        "FilteringEnabled": true // Ensure this is true for security and compatibility
+        "FilteringEnabled": true,
+        "Gravity": 196.2, // Set realistic gravity
+        "StreamingEnabled": true // Enable streaming for large maps
       },
       "Baseplate": {
         "$className": "Part",
         "$properties": {
           "Anchored": true,
           "Color": [
-            0.38823,
-            0.37254,
-            0.38823
+            0.4,
+            0.4,
+            0.4
           ],
           "Locked": true,
+          "Material": "Concrete", // Set material to concrete
           "Position": [
             0,
             -10,
@@ -63,25 +69,34 @@
     "Lighting": {
       "$properties": {
         "Ambient": [
-          0,
-          0,
-          0
+          0.5,
+          0.5,
+          0.5
         ],
-        "Brightness": 2,
+        "Brightness": 3, // Increase brightness for better visibility
         "GlobalShadows": true,
         "Outlines": false,
-        "Technology": "Voxel"
+        "Technology": "ShadowMap", // Use ShadowMap for realistic lighting
+        "ClockTime": 14, // Set time to afternoon
+        "FogEnd": 1000, // Add fog for depth
+        "FogColor": [
+          0.8,
+          0.8,
+          0.9
+        ]
       }
     },
     "SoundService": {
       "$properties": {
-        "RespectFilteringEnabled": true
+        "RespectFilteringEnabled": true,
+        "AmbientReverb": "Cave" // Add ambient reverb for realism
       }
     },
     "Players": {
       "$properties": {
-        "CharacterAutoLoads": true, // Ensure characters load automatically
-        "EnableVoiceChat": true    // Ensure voice chat is enabled
+        "CharacterAutoLoads": true,
+        "EnableVoiceChat": true,
+        "RespawnTime": 5 // Set respawn time to 5 seconds
       }
     }
   }
