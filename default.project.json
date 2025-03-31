@@ -94,6 +94,15 @@
       "$properties": {
         "RespectFilteringEnabled": true,
         "AmbientReverb": "Cave" // Add ambient reverb for realism
+      },
+      "BackgroundMusic": {
+        "$className": "Sound",
+        "$properties": {
+          "SoundId": "rbxassetid://110912249612617", // Replace with actual asset ID
+          "Looped": true,
+          "Playing": true,
+          "Volume": 0.5 // Adjust volume as needed
+        }
       }
     },
     "Players": {
