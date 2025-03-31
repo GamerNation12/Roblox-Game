@@ -15,6 +15,9 @@
       },
       "Leaderboard": {
         "$path": "src/server/leaderboard.server.lua"
+      },
+      "Packages": {
+        "$path": "src/server/packages"
       }
     },
 
