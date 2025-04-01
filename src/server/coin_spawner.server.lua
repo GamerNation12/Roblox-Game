@@ -41,7 +41,7 @@ local function spawnCoin()
     end
 
     local newCoin = coinTemplate:Clone()
-    newCoin.Position = getRandomPosition()
+    newCoin.CFrame = CFrame.new(getRandomPosition()) -- Use CFrame to set position
 
     -- Add texture to the coin
     local decal = Instance.new("Decal")
