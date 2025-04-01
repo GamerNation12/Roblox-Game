@@ -11,7 +11,10 @@
 
     "ServerScriptService": {
       "Server": {
-        "$path": "src/server"
+        "$path": "src/server",
+        "CoinSpawner": {
+          "$path": "src/server/coin_spawner.server.lua"
+        }
       }
     },
 
