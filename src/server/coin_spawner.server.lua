@@ -30,17 +30,22 @@ local function getRandomPosition()
 end
 
 local function enhanceGrassAppearance()
+    if RunService:IsStudio() then
+        print("Grass appearance enhancement skipped in Studio.")
+        return
+    end
+
     local grassPlate = Workspace:FindFirstChild("GrassPlate")
     if not grassPlate then
         warn("GrassPlate not found in Workspace!")
         return
     end
 
-    -- Add SurfaceAppearance for better visuals
+    -- Ensure asset IDs are valid
     local surfaceAppearance = Instance.new("SurfaceAppearance")
-    surfaceAppearance.ColorMap = "rbxassetid://12345678" -- Replace with actual asset ID for grass texture
-    surfaceAppearance.NormalMap = "rbxassetid://87654321" -- Replace with actual asset ID for normal map
-    surfaceAppearance.RoughnessMap = "rbxassetid://23456789" -- Replace with actual asset ID for roughness map
+    surfaceAppearance.ColorMap = "rbxassetid://12345678" -- Replace with valid asset ID
+    surfaceAppearance.NormalMap = "rbxassetid://87654321" -- Replace with valid asset ID
+    surfaceAppearance.RoughnessMap = "rbxassetid://23456789" -- Replace with valid asset ID
     surfaceAppearance.Parent = grassPlate
 
     -- Modify material properties
