@@ -1,22 +1,47 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ServerStorage = game:GetService("ServerStorage")
 local VoiceChatService = game:GetService("VoiceChatService")
 local Players = game:GetService("Players")
 local BadgeService = game:GetService("BadgeService")
 local RunService = game:GetService("RunService")
 
--- Ensure ModuleLoader exists
+-- Debugging for ModuleLoader
 local ModuleLoader = ReplicatedStorage:FindFirstChild("ModuleLoader")
-if not ModuleLoader then
-    warn("ModuleLoader not found in ReplicatedStorage!")
-else
+if not ModuleLoader thenng in Studio environment.")
+    error("[DEBUG] ModuleLoader is missing from ReplicatedStorage! Please ensure it is correctly placed.")
+elseprint("[DEBUG] Running in Live environment.")
+    print("[DEBUG] ModuleLoader found in ReplicatedStorage.")
     ModuleLoader = require(ModuleLoader)
+endDebugging for ModuleLoader
+local ModuleLoader = ReplicatedStorage:FindFirstChild("ModuleLoader")
+-- Debugging for CoinModule
+local CoinModule = ServerStorage:FindFirstChild("CoinModule")rage! Please ensure it is correctly placed.")
+else
+    print("[DEBUG] ModuleLoader found in ReplicatedStorage.")
+    ModuleLoader = require(ModuleLoader)
+end
+
+-- Debugging for CoinModule
+local CoinModule = ServerStorage:FindFirstChild("CoinModule")
+if not CoinModule then
+    warn("[DEBUG] CoinModule is missing from ServerStorage! Please ensure it is correctly placed.")
+else
+    print("[DEBUG] CoinModule found in ServerStorage.")
+end
+
+-- Debugging for GrassPlate
+local GrassPlate = workspace:FindFirstChild("GrassPlate")
+if not GrassPlate then
+    warn("[DEBUG] GrassPlate is missing from Workspace! Please ensure it is correctly placed.")
+else
+    print("[DEBUG] GrassPlate found in Workspace.")
 end
 
 local BADGE_ID = 4169582939766568 -- Replace with your actual badge ID
 
 local function enableVoiceChatForPlayer(player)
     if RunService:IsStudio() then
-        print("Voice chat check skipped in Studio for player:", player.Name)
+        print("[DEBUG] Voice chat check skipped in Studio for player:", player.Name)
         return
     end
 
@@ -26,22 +51,22 @@ local function enableVoiceChatForPlayer(player)
 
     if success then
         if isEnabled then
-            print("Voice chat enabled for player:", player.Name)
+            print("[DEBUG] Voice chat enabled for player:", player.Name)
         else
-            warn("Player does not meet the requirements for voice chat:", player.Name)
+            warn("[DEBUG] Player does not meet the requirements for voice chat:", player.Name)
         end
     else
-        warn("Failed to check voice chat eligibility for player:", player.Name)
+        warn("[DEBUG] Failed to check voice chat eligibility for player:", player.Name)
     end
 end
 
 local function awardBadge(player)
     if RunService:IsStudio() then
-        print("Badge awarding skipped in Studio for player:", player.Name)
+        print("[DEBUG] Badge awarding skipped in Studio for player:", player.Name)
         return
     end
 
-    print("Attempting to award badge with ID:", BADGE_ID, "to player:", player.Name)
+    print("[DEBUG] Attempting to award badge with ID:", BADGE_ID, "to player:", player.Name)
 
     local success, alreadyHasBadge = pcall(function()
         return BadgeService:UserHasBadgeAsync(player.UserId, BADGE_ID)
@@ -49,11 +74,11 @@ local function awardBadge(player)
 
     if success then
         if alreadyHasBadge then
-            print("Player already owns the badge:", player.Name)
+            print("[DEBUG] Player already owns the badge:", player.Name)
             return
         end
     else
-        warn("Failed to check if player owns the badge:", player.Name)
+        warn("[DEBUG] Failed to check if player owns the badge:", player.Name)
         return
     end
 
@@ -63,12 +88,12 @@ local function awardBadge(player)
 
     if awardSuccess then
         if result then
-            print("Badge successfully awarded to player:", player.Name)
+            print("[DEBUG] Badge successfully awarded to player:", player.Name)
         else
-            warn("Badge could not be awarded to player:", player.Name)
+            warn("[DEBUG] Badge could not be awarded to player:", player.Name)
         end
     else
-        warn("Failed to award badge to player:", player.Name, "Error:", result)
+        warn("[DEBUG] Failed to award badge to player:", player.Name, "Error:", result)
     end
 end
 

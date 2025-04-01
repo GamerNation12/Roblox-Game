@@ -1,10 +1,11 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
--- Ensure CmdrClient exists
+-- Debugging for CmdrClient
 local CmdrClient = ReplicatedStorage:FindFirstChild("CmdrClient")
 if not CmdrClient then
-    warn("CmdrClient not found in ReplicatedStorage!")
-    return
+    error("[DEBUG] CmdrClient is missing from ReplicatedStorage! Please ensure it is correctly placed.")
+else
+    print("[DEBUG] CmdrClient found in ReplicatedStorage.")
 end
 
 local Cmdr = require(CmdrClient)
