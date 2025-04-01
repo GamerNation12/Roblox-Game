@@ -1,6 +1,13 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Cmdr = require(ReplicatedStorage:WaitForChild("CmdrClient"))
+-- Ensure CmdrClient exists
+local CmdrClient = ReplicatedStorage:FindFirstChild("CmdrClient")
+if not CmdrClient then
+    warn("CmdrClient not found in ReplicatedStorage!")
+    return
+end
+
+local Cmdr = require(CmdrClient)
 
 local ACTIVATION_KEYS = {
     Enum.KeyCode.F2,

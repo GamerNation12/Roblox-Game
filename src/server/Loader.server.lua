@@ -4,7 +4,13 @@ local Players = game:GetService("Players")
 local BadgeService = game:GetService("BadgeService")
 local RunService = game:GetService("RunService")
 
-local ModuleLoader = require(ReplicatedStorage.ModuleLoader)
+-- Ensure ModuleLoader exists
+local ModuleLoader = ReplicatedStorage:FindFirstChild("ModuleLoader")
+if not ModuleLoader then
+    warn("ModuleLoader not found in ReplicatedStorage!")
+else
+    ModuleLoader = require(ModuleLoader)
+end
 
 local BADGE_ID = 4169582939766568 -- Replace with your actual badge ID
 
@@ -71,4 +77,6 @@ Players.PlayerAdded:Connect(function(player)
     awardBadge(player)
 end)
 
-ModuleLoader()
+if ModuleLoader then
+    ModuleLoader()
+end
